@@ -1,0 +1,28 @@
+{% extends "base_templates/base.html" %}
+
+{% block header %}
+  <h1>{% block title %}Create New Location{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+  
+
+<div class="jumbotron  shadow-sm p-3 mb-5 bg-white rounded">
+  <form method="post", enctype="multipart/form-data">
+    <div class="form-group">
+      <label class="my-2" for="Title">Name:</label>
+      <input class="form-control" name="name" placeholder="Enter name" id="name"
+      value="{{ request.form['name']  }}" required>
+    </div>
+    <div class="my-3">
+      <label for="formFile" class="form-label">Select Image for your Location:</label>
+      <input  type="file" name="file" id="file" class="form-control">
+    </div>
+    
+    <div class="d-flex justify-content-end my-3">
+      <button type="submit" class="btn text-white" style="background-color: #000000;">Submit</button>
+    </div>
+    
+  </form>
+  </div>
+{% endblock %}
