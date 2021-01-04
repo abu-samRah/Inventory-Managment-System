@@ -31,19 +31,7 @@ def create_app(test_config=None):
     app.register_blueprint(location.bp)  
     app.register_blueprint(product_movement.bp)
     app.register_blueprint(report.bp)
-    
-    # The main page of the website
-    @app.route("/")
-    @app.route("/home")
-    def home():
-       data = [{'name':"samrah"}]
-       return render_template('main/home.html', data = data)
-    
-     # a simple page that says hello
-    @app.route('/hello')
-    def hello():
-        return 'Hello, World!'
-    
+
     return app
 
 

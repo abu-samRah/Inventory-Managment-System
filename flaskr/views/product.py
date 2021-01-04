@@ -71,6 +71,8 @@ def create():
             else: 
                 filename = "default_image.jpg"
                 
+            if filename is None:
+                filename = "default_image.jpg"    
             exists = check_product_exists(title)
             
             #check if another product with the same name is already exists in the database, and if true, it flashes an error message
@@ -139,9 +141,9 @@ def update(id):
                file = request.files['file']
                filename = save_image(file)
                
-               if filename == "": 
+               if filename == "" or filename is None: 
                     filename = "default_image.jpg"
-        
+
             #if the user didnt attach a new picture the product will have the old image
             else:
                 filename = product['image']

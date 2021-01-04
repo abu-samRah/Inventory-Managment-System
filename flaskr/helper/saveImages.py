@@ -23,7 +23,9 @@ saves the uploaded file if its an allowed type, in the specified uploaded file
 and returns the file name
 """        
 def save_image(file):
+    
     if file and allowed_file(file.filename):
         filename = secure_filename(file.filename)
         file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
         return filename
+    

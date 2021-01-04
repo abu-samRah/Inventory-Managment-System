@@ -68,6 +68,8 @@ def create():
             else:
                 filename = "location_default.jpg"
                 
+            if filename is None:
+                filename = "location_default.jpg"    
             exists = check_location_exists(name)
             #check if another location with the same name is already exists in the database, and if true, it flashes an error message
             if exists is not None:
@@ -135,7 +137,9 @@ def update(id):
                     
                if filename == "": 
                     filename = "location_default.jpg"
-                    
+                
+               if filename is None:
+                filename = "location_default.jpg" 
             #if the user didnt attach a new picture the location will have the old image
             else:
                 filename = location['image']
