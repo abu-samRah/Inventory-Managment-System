@@ -5,7 +5,7 @@ This is the main product page in which you can view, create, edit and delete pro
 
 This is the create product page in which you can create new products
 
-![Create Product Page](https://github.com/abu-samRah/Inventory-Managment-System/blob/master/doc/CreateNewLocation.png)
+![Create Product Page](https://github.com/abu-samRah/Inventory-Managment-System/blob/master/doc/CreateProduct.png)
 
 
 This is the create product page in which you can edit products
