@@ -1,0 +1,18 @@
+{% extends "base_templates/base.html" %}
+
+{% block content %}
+            
+
+            <article class="media content-section">
+                <div class="media-body">
+                  <div class="article-metadata">
+                    {% for product in data %}
+                    <a class="mr-2" href="#">{{ product['name'] }}</a>
+                    
+                    
+                    {% endfor %}
+                  </div>
+    
+                </div>
+              </article>
+{% endblock content %} 

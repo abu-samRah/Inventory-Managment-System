@@ -1,0 +1,6 @@
+.idea/
+.pytest_cashe/
+.vscode/
+flaskTask_env/
+instance/
+__pycache__/

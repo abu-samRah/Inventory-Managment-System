@@ -1,0 +1,37 @@
+{% extends "base_templates/base.html" %}
+
+{% block header %}
+  <h1>{% block title %}Report{% endblock %}</h1>
+{% endblock %}
+{% block marketing %} This is where you can find a detailed report about all the products registered on the system. {% endblock %}
+{% block content %}
+        <div class="mx-2">
+          <div class="row" >
+            <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th class="center" scope="col">Warehouse</th>
+                    <th class="center" scope="col">Product</th>
+                    <th class="center" scope="col">Quantity</th>
+                  </tr>
+                </thead>
+                <tbody>
+                {% if report %}
+                {% for item in report %}
+                {% if item['qty'] > 0 %}
+                  <tr>
+                    <td class="center">{{item['name']}}</td>
+                    <td class="center">{{item['title']}}</td>
+                    <td class="center">{{item['qty']}}</td>
+                  </tr>
+                  {% endif %}
+                  {% endfor %}
+                {% else %}
+                <td colspan="3" style="text-align: center; background-color: beige;" >There are No data to display</td>
+                {% endif %}
+                 
+                </tbody>
+              </table>
+          </div>
+        </div>       
+{% endblock content %} 

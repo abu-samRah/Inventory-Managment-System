@@ -1,0 +1,43 @@
+{% extends "base_templates/base.html" %}
+
+{% block header %}
+  <h1>{% block title %}Update Product Movement{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+  
+
+<div class="jumbotron  shadow-sm p-3 mb-5 bg-white rounded">
+  <form method="post", enctype="multipart/form-data">
+     <div class="mb-3">
+        <label for="selectProduct" class="form-label">Select Product:</label>
+        <select id="product" name="product" class="form-select" value="{{ request.form['product']  }}" required>
+          <option selected="true" >{{ product['title'] }}</option> 
+        </select>
+      </div>
+      <div class="mb-3">
+        <label for="selectFromLocation" class="form-label">Select From Location:</label>
+        <select id="fromLocation" name="fromLocation" class="form-select"  value="{{ request.form['fromLocation'] }} " required>   
+            <option selected="true" >{{ movement['from_location'] }}</option>
+        </select>
+      </div>
+      <div class="mb-3">
+        <label for="selectToLocation" class="form-label">Select To Location:</label>
+        <select id="toLocation" name="toLocation"  class="form-select"  value="{{ request.form['toLocation']  }}" required>
+            <option selected="true" >{{ movement['to_location'] }}</option>
+        </select>
+      </div>
+    <div class="form-group">
+      <label class="my-2" for="quantity">Quantity:</label>
+      <input  type="number" class="form-control" name="quantity" placeholder="Enter Quantity" id="quantity"
+      value="{{ request.form['quantity']  or movement['qty'] }}" min="0" required>
+    </div>
+  
+
+    <div class="d-flex justify-content-end my-3">
+      <button type="submit" class="btn text-white" style="background-color: #000000;">Submit</button>
+    </div>
+    
+  </form>
+</div>
+{% endblock %}
