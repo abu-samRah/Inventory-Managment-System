@@ -56,3 +56,8 @@ This is the update product-movement page in which you edit product-movements
 This is the view report page in which you view all products, locations and thier quantities
 
 ![Report Page](https://github.com/abu-samRah/Inventory-Managment-System/blob/master/doc/Report.png)
+
+
+This is the new view of the report page in which you view all products, locations and thier quantities
+
+![New Report Page](https://github.com/abu-samRah/Inventory-Managment-System/blob/master/doc/NewReport.png)
