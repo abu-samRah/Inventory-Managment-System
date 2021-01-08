@@ -21,12 +21,49 @@ def index():
     
     #querying all the locations along with the products and thier quantities in that location
     report = db.execute(
-        'SELECT pl.title,name,qty'
+        'SELECT pl.title,qty'
         ' FROM productLocation pl'
-        ' ORDER BY name'
+        ' Group BY title'
         ).fetchall()
+    
+    for item in report:
+        print(item['title']+ " =>"+str(item['qty'])+ " =>"+ str(item['qty']))
+    
+    
+    products = db.execute(
+        'SELECT DISTINCT title'
+        ' FROM productLocation '
+        ).fetchall()
+    
+   
   
-    return render_template('main/report.html',report=report)
+    locations = db.execute(
+        'SELECT DISTINCT name'
+        ' FROM productLocation '
+        ).fetchall()
+    
+    locationqty = dict()
+    
+    for location in locations:
+        qty = db.execute(
+        'SELECT title, qty'
+        ' FROM productLocation '
+        ' WHERE name = ? ',
+        (location['name'],)
+        ).fetchall()
+        
+        locationqty[location['name']] = {p['title']:0 for p in products}
+        for q in qty:
+            locationqty[location['name']][q['title']] = q['qty']
+   
+    return render_template('main/report.html',products=products,locations=locations,locationqty=locationqty)
+
+
+
+
+
+
+
 
 
 
