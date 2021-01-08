@@ -18,18 +18,7 @@ will deisplay all the locations along with the products and thier quantities in 
 @bp.route('/')
 def index():
     db = get_db() #create a connection with the database
-    
-    #querying all the locations along with the products and thier quantities in that location
-    report = db.execute(
-        'SELECT pl.title,qty'
-        ' FROM productLocation pl'
-        ' Group BY title'
-        ).fetchall()
-    
-    for item in report:
-        print(item['title']+ " =>"+str(item['qty'])+ " =>"+ str(item['qty']))
-    
-    
+
     products = db.execute(
         'SELECT DISTINCT title'
         ' FROM productLocation '
